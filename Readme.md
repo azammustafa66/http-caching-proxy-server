@@ -2,6 +2,8 @@
 
 A CLI-driven HTTP proxy that caches GET responses to disk. Repeat GET requests are served from the local cache without hitting the origin. Non-GET requests are forwarded transparently.
 
+> Built as part of the [roadmap.sh Caching Server project](https://roadmap.sh/projects/caching-server).
+
 ## How it works
 
 - **GET requests** — checks `./cache/` for a stored response. On a miss, fetches from the origin, writes the response to disk, and returns it. On a hit, reads from disk and returns immediately.
@@ -54,10 +56,10 @@ curl http://localhost:3000/products
 
 ## X-Cache header
 
-| Value | Meaning |
-|-------|---------|
-| `HIT` | Response served from local disk cache |
-| `MISS` | Cache empty — fetched from origin and stored |
+| Value    | Meaning                                          |
+| -------- | ------------------------------------------------ |
+| `HIT`    | Response served from local disk cache            |
+| `MISS`   | Cache empty — fetched from origin and stored     |
 | `BYPASS` | Non-GET request, proxied through without caching |
 
 ## Project structure
