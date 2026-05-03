@@ -2,6 +2,8 @@
 node_modules
 .cursor
 
+cache/
+
 # output
 out
 dist
